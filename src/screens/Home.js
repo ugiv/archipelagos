@@ -11,9 +11,9 @@ export default function Home(){
             <JumbotronContainer>
                 <SubContainer>
                     <Header>
-                        <Logo>Archipelagos</Logo>
+                        <Logo>ARCHIPELAGOS</Logo>
                         <ButtonHeaderContainer>
-                            <HollowButtonMedium>Sign Up</HollowButtonMedium>
+                            <HollowButtonMedium >Sign Up</HollowButtonMedium>
                             <SolidButtonMedium>Log In</SolidButtonMedium>
                         </ButtonHeaderContainer>
                     </Header>
