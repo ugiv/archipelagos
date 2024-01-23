@@ -1,19 +1,24 @@
 import {JumbotronContainer, 
     SubContainer, TextContainer, HeroContainer, 
     Title, Paragraph, SolidButtonLarge, Header, 
-    Logo, ButtonHeaderContainer, SolidButtonMedium, HollowButtonMedium, ColaborateContainer } from '../components/styles/Jumbotron.styled';
+    Logo, ButtonHeaderContainer, SolidButtonMedium, HollowButtonMedium, ColaborateContainer } 
+from '../components/styles/Jumbotron.styled';
+import {ContainerDesign, SubContainerDesign } from '../components/styles/Design.styled';
+import { SwipeMiniContainer, SwipeButtonHollow, SwipeButtonSolid, SwipeContainer, SwipeSubContainer } from '../components/styles/Swap.styled';
+
 import './Home.css';
 import Hero from '../image/Hero.jpg';
 import companyOne from '../image/Architecteam.png';
 import companyTwo from '../image/ArchiMania.png';
 import companyThree from '../image/BlueTechure.png';
-import {ContainerDesign, SubContainerDesign } from '../components/styles/Design.styled';
 import designOne from '../image/design-one.jpg';
 import designTwo from '../image/design-two.jpg';
 import designThree from '../image/design-three.jpg';
 import designFour from '../image/design-four.jpg';
 import designFive from '../image/design-five.jpg';
 import designSix from '../image/design-six.jpg';
+
+
 
 
 export default function Home(){
@@ -53,6 +58,18 @@ export default function Home(){
                     <img src={designSix} alt='design six' /> 
                 </SubContainerDesign>
             </ContainerDesign>
+            <SwipeContainer>
+                <SwipeMiniContainer>
+                    <SwipeButtonSolid>Like</SwipeButtonSolid>
+                    <SwipeButtonHollow>Dislike</SwipeButtonHollow>
+                </SwipeMiniContainer>
+                <SwipeSubContainer>
+                    <img src={designOne} alt='designOne' />
+                </SwipeSubContainer>
+                <SwipeMiniContainer>
+                    <h2>JUST SWAP IT</h2>
+                </SwipeMiniContainer>
+            </SwipeContainer>
         </div>
     )
 }

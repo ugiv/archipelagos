@@ -10,7 +10,7 @@ export const SubContainerDesign = styled.div`
     justify-content: space-between;
 
     img {
-        width: 220px;
+        width: 300px;
         height: auto;
         border-radius: 10px;
         margin-right: 20px;
