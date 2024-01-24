@@ -63,3 +63,23 @@ code {
 .swipeActiveRight {
   animation: rightSwipe 1s;
 }
+
+.imageRight{
+  right: 10px;
+  bottom: 0;
+}
+
+.imageLeft{
+  left: 10px;
+  top: 0;
+}
+
+.imageOne {
+  left: 20px;
+  top: 0;
+}
+
+.imageTwo {
+  right: 20px;
+  bottom: 0;
+}

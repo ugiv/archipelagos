@@ -5,7 +5,7 @@ import {JumbotronContainer,
     Logo, ButtonHeaderContainer, SolidButtonMedium, HollowButtonMedium, ColaborateContainer } 
 from '../components/styles/Jumbotron.styled';
 import {ContainerDesign, SubContainerDesign } from '../components/styles/Design.styled';
-import { SwipeMiniContainer, SwipeButtonHollow, SwipeButtonSolid, SwipeContainer, SwipeSubContainer } from '../components/styles/Swipe.styled';
+import { SwipeMiniContainer, SwipeButtonHollow, SwipeButtonSolid, SwipeContainer, SwipeSubContainer, SwipeImageContainer } from '../components/styles/Swipe.styled';
 
 import './Home.css';
 import Hero from '../image/Hero.jpg';
@@ -27,12 +27,24 @@ export default function Home(){
     const handleSwipeLeft = () => {
         const id = 'image'+ (imageData.length - 1);
         const imageSwipe = document.getElementById(id);
+        if (imageData.length > 1){
+            imageSwipe.classList.remove("imageLeft");
+        }
+        if (imageData.length === 2){
+            imageSwipe.classList.remove("imageOne");
+        }
         imageSwipe.classList.add("swipeActiveLeft");
         setTimeout(() => setImageData((prev) => prev.slice(1)), 900);
     }
     const handleSwipeRight = () => {
         const id = 'image'+ (imageData.length - 1);
         const imageSwipe = document.getElementById(id);
+        if (imageData.length > 1){
+            imageSwipe.classList.remove("imageLeft");
+        }
+        if (imageData.length === 2){
+            imageSwipe.classList.remove("imageOne");
+        }
         imageSwipe.classList.add("swipeActiveRight");
         setTimeout(() => setImageData((prev) => prev.slice(1)), 900);
     }
@@ -77,12 +89,30 @@ export default function Home(){
                     <h2>JUST SWIPE IT</h2>
                 </SwipeMiniContainer>
                 <SwipeSubContainer>
-                    { imageData.length ? 
-                        imageData.toReversed().map((image, index) => {
-                                return <img src={image} alt="index" id={"image" + index} />
-                        }):
-                        <p>Processing...</p>
-                    }
+                    <SwipeImageContainer>
+                        { imageData.length ? 
+                            imageData.toReversed().map((image, index) => {
+                                if (imageData.length > 2) {
+                                    if (index === imageData.length - 1){
+                                        return <img src={image} alt="index" id={"image" + index} className='imageLeft'/>
+                                    } else if (index === 0) {
+                                        return <img src={image} alt="index" id={"image" + index} className='imageRight'/>
+                                    } else {
+                                        return <img src={image} alt="index" id={"image" + index} />
+                                    }
+                                } else if (imageData.length === 2){
+                                    if (index === 0){
+                                        return <img src={image} alt="index" id={"image" + index} className='imageTwo'/>
+                                    } else {
+                                        return <img src={image} alt="index" id={"image" + index} className='imageOne'/>
+                                    }
+                                } else {
+                                    return <img src={image} alt="index" id={"image" + index}/>
+                                }
+                            }):
+                            <p>Processing...</p>
+                        }
+                    </SwipeImageContainer>
                 </SwipeSubContainer>
                 <SwipeMiniContainer>
                     <SwipeButtonSolid onClick={handleSwipeRight}>Like</SwipeButtonSolid>

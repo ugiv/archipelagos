@@ -22,7 +22,7 @@ export const SwipeContainer = styled.div`
 export const SwipeSubContainer = styled.div`
     width: 80%;
     max-width: 350px;
-    height: 250px;
+    height: 260px;
     padding: 50px 0;
     background-color: white;
     border-radius: 20px;
@@ -33,12 +33,6 @@ export const SwipeSubContainer = styled.div`
     position: relative;
     overflow: hidden;
 
-    img {
-        position: absolute;
-        width: 65%;
-        height: auto;
-        border-radius: 10px;
-    }
 
     @media only screen and (min-width: 1024px){
         width: 30%;
@@ -46,14 +40,8 @@ export const SwipeSubContainer = styled.div`
         height: 400px;
         min-width: 500px;
         border-radius: 30px;
-
-        img {
-            width: 300px;
-            border-radius: 20px;
-        }
     }
 `;
-
 
 export const SwipeMiniContainer = styled.div`
     width: auto;
@@ -78,6 +66,31 @@ export const SwipeMiniContainer = styled.div`
 
         h2 {
             font-size: 36px;
+        }
+    }
+`;
+
+export const SwipeImageContainer = styled.div`
+    width: 80%;
+    height: 100%;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    img {
+        position: absolute;
+        width: 200px;
+        height: auto;
+        border-radius: 10px;
+    }
+    
+    @media only screen and (min-width: 1024px){
+        img {
+            width: 300px;
+            border-radius: 20px;
         }
     }
 `;
