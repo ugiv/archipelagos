@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import {JumbotronContainer, 
     SubContainer, TextContainer, HeroContainer, 
     Title, Paragraph, SolidButtonLarge, Header, 
     Logo, ButtonHeaderContainer, SolidButtonMedium, HollowButtonMedium, ColaborateContainer } 
 from '../components/styles/Jumbotron.styled';
 import {ContainerDesign, SubContainerDesign } from '../components/styles/Design.styled';
-import { SwipeMiniContainer, SwipeButtonHollow, SwipeButtonSolid, SwipeContainer, SwipeSubContainer } from '../components/styles/Swap.styled';
+import { SwipeMiniContainer, SwipeButtonHollow, SwipeButtonSolid, SwipeContainer, SwipeSubContainer } from '../components/styles/Swipe.styled';
 
 import './Home.css';
 import Hero from '../image/Hero.jpg';
@@ -20,8 +21,21 @@ import designSix from '../image/design-six.jpg';
 
 
 
-
 export default function Home(){
+    const [imageData, setImageData] = useState([designOne, designTwo, designThree, designFour, designFive, designSix]);
+
+    const handleSwipeLeft = () => {
+        const id = 'image'+ (imageData.length - 1);
+        const imageSwipe = document.getElementById(id);
+        imageSwipe.classList.add("swipeActiveLeft");
+        setTimeout(() => setImageData((prev) => prev.slice(1)), 900);
+    }
+    const handleSwipeRight = () => {
+        const id = 'image'+ (imageData.length - 1);
+        const imageSwipe = document.getElementById(id);
+        imageSwipe.classList.add("swipeActiveRight");
+        setTimeout(() => setImageData((prev) => prev.slice(1)), 900);
+    }
     return (
         <div className="home">
             <JumbotronContainer>
@@ -60,14 +74,19 @@ export default function Home(){
             </ContainerDesign>
             <SwipeContainer>
                 <SwipeMiniContainer>
-                    <SwipeButtonSolid>Like</SwipeButtonSolid>
-                    <SwipeButtonHollow>Dislike</SwipeButtonHollow>
+                    <h2>JUST SWIPE IT</h2>
                 </SwipeMiniContainer>
                 <SwipeSubContainer>
-                    <img src={designOne} alt='designOne' />
+                    { imageData.length ? 
+                        imageData.toReversed().map((image, index) => {
+                                return <img src={image} alt="index" id={"image" + index} />
+                        }):
+                        <p>Processing...</p>
+                    }
                 </SwipeSubContainer>
                 <SwipeMiniContainer>
-                    <h2>JUST SWAP IT</h2>
+                    <SwipeButtonSolid onClick={handleSwipeRight}>Like</SwipeButtonSolid>
+                    <SwipeButtonHollow onClick={handleSwipeLeft}>Dislike</SwipeButtonHollow>
                 </SwipeMiniContainer>
             </SwipeContainer>
         </div>

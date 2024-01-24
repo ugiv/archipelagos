@@ -24,3 +24,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@keyframes leftSwipe {
+  0% {
+    left: 40px;
+    transform: rotate(-5deg);
+  }
+  30% {
+    transform: rotate(-15deg);
+  }
+  60% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@keyframes rightSwipe {
+  0% {
+    right: 40px;
+    transform: rotate(5deg);
+  }
+  30% {
+    transform: rotate(15deg);
+  }
+  60% {
+    transform: rotate(25deg);
+  }
+  100% {
+    right: -100%;
+  }
+}
+
+.swipeActiveLeft {
+  animation: leftSwipe 1s;
+}
+
+.swipeActiveRight {
+  animation: rightSwipe 1s;
+}

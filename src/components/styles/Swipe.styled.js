@@ -5,39 +5,44 @@ export const SwipeContainer = styled.div`
     width: 100%;
     height: auto;
     background-color: #181818;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 30px 0;
 
     @media only screen and (min-width: 1024px){
         flex-direction: row;
         padding: 100px 0;
+        justify-content: center;
     }
 `;
     
 export const SwipeSubContainer = styled.div`
-    width: 70%;
+    width: 80%;
+    max-width: 350px;
     height: 250px;
     padding: 50px 0;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 20px;
     display: flex;
     flex-direnction: column;
     justify-content: center;
     align-items: center;
     position: relative;
-    
+    overflow: hidden;
+
     img {
         position: absolute;
-        width: 200px;
+        width: 65%;
         height: auto;
         border-radius: 10px;
     }
-    
+
     @media only screen and (min-width: 1024px){
         width: 30%;
+        max-width: none;
         height: 400px;
         min-width: 500px;
         border-radius: 30px;
@@ -54,7 +59,7 @@ export const SwipeMiniContainer = styled.div`
     width: auto;
     height: 150px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
 
@@ -67,6 +72,7 @@ export const SwipeMiniContainer = styled.div`
     }
 
     @media only screen and (min-width: 1024px){
+        flex-direction: column;
         height: 300px;
         width: 20%;
 
@@ -84,6 +90,7 @@ export const SwipeButtonSolid = styled.button`
     font-weight: bold;
     border-radius: 20px;
     border: 1px solid white;
+    cursor: pointer;
     
     @media only screen and (min-width: 1024px){
         width: 120px;
@@ -100,6 +107,7 @@ export const SwipeButtonHollow = styled.button`
     border-radius: 20px;
     border: 1px solid white;
     background-color: transparent;
+    cursor: pointer;
 
     @media only screen and (min-width: 1024px){
         width: 120px;

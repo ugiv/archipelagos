@@ -40,7 +40,6 @@ export const TextContainer = styled.div`
         width: 30%;
         height: 100%;
         margin: 0 12.5%;
-        align-items: flex-start;
         text-align: left;
         padding: 0;
     }
@@ -114,7 +113,7 @@ export const ButtonHeaderContainer = styled.div`
 
 export const Title = styled.h1`
     color: black;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 800;
     margin: 0;
 
@@ -144,6 +143,7 @@ export const SolidButtonLarge = styled.button`
     font-size: 18px;
     font-weight: 700;
     border-radius: 8px;
+    margin: 10px 0;
 
     @media only screen and (min-width: 1024px){
         width: 150px;
@@ -187,7 +187,7 @@ export const ColaborateContainer = styled.div`
     width: 100%;
     max-width: 400px;
     height: 20px;
-    bottom: 10px;
+    bottom: 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -197,6 +197,7 @@ export const ColaborateContainer = styled.div`
     }
     @media only screen and (min-width: 1024px){
         width: 400px;
+        bottom: 10px;
         img {
             width: 100px;
         }
