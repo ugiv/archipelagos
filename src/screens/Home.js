@@ -18,12 +18,25 @@ import designThree from '../image/design-three.jpg';
 import designFour from '../image/design-four.jpg';
 import designFive from '../image/design-five.jpg';
 import designSix from '../image/design-six.jpg';
+import resultOne from '../image/resultOne.jpg';
+import resultTwo from '../image/resultTwo.jpg';
+import resultThree from '../image/resultThree.jpg';
+import resultFour from '../image/resultFour.jpg';
+import resultFive from '../image/resultFive.jpg';
+import resultSix from '../image/resultSix.jpg';
+import resultSeven from '../image/resultSeven.jpg';
+import resultEight from '../image/resultEight.jpg';
+import resultNine from '../image/resultNine.jpg';
 
 
+
+
+const resultImage = [resultOne, resultTwo, resultThree, resultFour, resultFive, resultSix, resultSeven, resultEight, resultNine];
 
 export default function Home(){
     const [imageData, setImageData] = useState([designOne, designTwo, designThree, designFour, designFive, designSix]);
-
+    // const [onProcess, setOnProcess] = useState(true);
+    // const [result, setResult] = useState(false);
     const handleSwipeLeft = () => {
         const id = 'image'+ (imageData.length - 1);
         const imageSwipe = document.getElementById(id);
@@ -47,6 +60,10 @@ export default function Home(){
         }
         imageSwipe.classList.add("swipeActiveRight");
         setTimeout(() => setImageData((prev) => prev.slice(1)), 900);
+    }
+    const handleSwipeResult = () => {
+        const randomIndex = Math.floor(Math.random() * 9);
+        return <img src={resultImage[randomIndex]} alt='result' />
     }
     return (
         <div className="home">
@@ -110,7 +127,7 @@ export default function Home(){
                                     return <img src={image} alt="index" id={"image" + index}/>
                                 }
                             }):
-                            <p>Processing...</p>
+                            handleSwipeResult()
                         }
                     </SwipeImageContainer>
                 </SwipeSubContainer>

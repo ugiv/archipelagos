@@ -40,7 +40,7 @@ export const TextContainer = styled.div`
         width: 30%;
         height: 100%;
         margin: 0 12.5%;
-        text-align: left;
+        text-align: center;
         padding: 0;
     }
 `
